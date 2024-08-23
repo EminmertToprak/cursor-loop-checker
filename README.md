@@ -17,10 +17,11 @@ A brief description steps of my path to solve the puzzle
 13. In most basic version, it kept looping until the cursor is empty, and print all messages to the browser.
 14. I checked the final message to understand I managed to solve puzzle!
 
-To-Do List
+## To-Do List
 
-[ ] Refactor code if necessary.
-[ ] Make UI slightly better and easier to understand.
+[] Refactor code if necessary.
+[] Hide API key to env file.
+[] Make UI slightly better and easier to understand.
 
 # Cursor Loop Checker Instructions
 
