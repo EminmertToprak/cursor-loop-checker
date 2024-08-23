@@ -46,7 +46,18 @@ Install the necessary Node.js dependencies by running:
 npm install
 ```
 
-### 3. Start the Server
+### 4. Create a .env File
+
+In the root of your project directory, create a .env file to store your API URL and token
+
+```bash
+API_URL=https://your-api-url
+API_TOKEN=Bearer your-api-token
+```
+
+By following these steps, you ensure that sensitive information like your API token and URL are not exposed in your public repository, keeping your project secure.
+
+### 5. Start the Server
 
 Run the following command to start the server:
 
@@ -54,7 +65,7 @@ Run the following command to start the server:
 node server.js
 ```
 
-### 4. Open the Web Page
+### 6. Open the Web Page
 
 Open your browser and navigate to:
 

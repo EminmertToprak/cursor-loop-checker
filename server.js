@@ -2,6 +2,7 @@ const express = require('express');
 const request = require('request');
 const app = express();
 const path = require('path');
+require('dotenv').config();
 
 app.use(express.json());
 
@@ -9,9 +10,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/api/proxy', (req, res) => {
 	const options = {
-		url: 'https://flag-gilt.vercel.app/api/challenge',
+		url: process.env.API_URL,
 		headers: {
-			Authorization: 'Bearer uM0M7uypyeeHZ741XIrs9KsFOUEhxUdtXJA=',
+			Authorization: process.env.API_TOKEN,
 			'Content-Type': 'application/json',
 		},
 		method: 'POST',
