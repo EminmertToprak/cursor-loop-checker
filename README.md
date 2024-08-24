@@ -7,25 +7,23 @@ A brief description steps of my path to solve the puzzle
 3. After few attempts, I understood POST is the method.
 4. Later on, I added cursor to the body, again with Postman to see what's next.
 5. When I noticed this is a loop, and aim is to see how it ends, I decided to create a small web application to solve the problem.
-6. I created a server script that forwards requests to the target site with the bearer token.
+6. I created a server script that fetches the next message with the cursor to hide vulnerable information such as berarer token and protect the 3rd party server from too many requests.
 7. I used express framework to create it, and request package to make HTTP requests.
 8. Following, I craeted a loop checker js component which would check every single cursor until there is no cursor left.
 9. Also, I created a very basic HTML file to print it to the browser.
-10. I had an Error because of the CORS. It prevented me to make request from different domain.
-11. I decided to set up a local server to serve my HTML file, so that it can bypass CORS restrictions.
-12. I updated my server.js to the current state.
-13. In most basic version, it kept looping until the cursor is empty, and print all messages to the browser.
-14. I checked the final message to understand I managed to solve puzzle!
+10. I refactored my server.js to the current state.
+11. In most basic version, it kept looping until the cursor is empty (or repeating), and print all messages to the browser.
+12. I checked the final message to understand I managed to solve puzzle!
 
 ## To-Do List
 
-[] Refactor code if necessary.
-[] Hide API key to env file.
-[] Make UI slightly better and easier to understand.
+[x] Refactor code if necessary.
+[x] Hide API key to env file.
+[x] Make UI slightly better and easier to understand.
 
 # Cursor Loop Checker Instructions
 
-This project sets up a simple web server and client to process cursors using an API. It will continuously send requests with each new cursor until it detects a loop or runs out of cursors.
+This project sets up a simple web server to process cursors using an API. It will continuously send requests with each new cursor until it detects a loop or runs out of cursors.
 
 ## Steps to Set Up
 
@@ -69,7 +67,7 @@ node server.js
 
 Open your browser and navigate to:
 
-```arduino
+```
 http://localhost:3000/
 ```
 

@@ -13,9 +13,7 @@ async function loopChecker(cursor) {
 		const data = await response.json();
 		console.log(`Response for cursor ${cursor}:`, data);
 
-		document.getElementById(
-			'output'
-		).innerText += `Cursor: ${cursor}, Response: ${JSON.stringify(data)}\n`;
+		addLogEntry(cursor, data);
 
 		if (!data.nextCursor || cursorHistory.includes(data.nextCursor)) {
 			console.log('Loop detected or no more cursors. Stopping.');
@@ -33,8 +31,41 @@ async function loopChecker(cursor) {
 	}
 }
 
+function addLogEntry(cursor, data) {
+	console.log(data);
+	const isLastMessage = !data.nextCursor;
+	const logEntry = document.createElement('div');
+
+	logEntry.className = 'log-entry';
+
+	const cursorSpan = document.createElement('span');
+	cursorSpan.className = 'cursor';
+	cursorSpan.textContent = `Cursor: ${cursor}`;
+
+	const messageSpan = document.createElement('span');
+	messageSpan.className = 'message';
+	messageSpan.textContent = `Message: ${data.message}`;
+
+	logEntry.appendChild(cursorSpan);
+	logEntry.appendChild(messageSpan);
+
+	if (isLastMessage) {
+		logEntry.classList.add('highlight');
+		addFlag(data.flag);
+	}
+
+	document.getElementById('output').prepend(logEntry);
+
+	if (isLastMessage) {
+		logEntry.classList.add('highlight');
+	}
+}
+
+function addFlag(flag) {
+	const flagDiv = document.getElementById('flag');
+	flagDiv.textContent = `${flag}!`;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-	const initialCursor = '94885f20';
-	console.log(`Starting loop with cursor: ${initialCursor}`);
-	loopChecker(initialCursor);
+	loopChecker('');
 });

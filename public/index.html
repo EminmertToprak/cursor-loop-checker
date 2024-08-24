@@ -4,9 +4,47 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Cursor Loop Checker</title>
+		<style>
+			div {
+				display: block;
+				text-align: center;
+				margin: auto;
+			}
+			.log-entry {
+				padding: 10px;
+				margin: 5px 0;
+				border: 1px solid #ddd;
+				border-radius: 4px;
+				background-color: #f9f9f9;
+				font-family: Arial, sans-serif;
+				font-size: 14px;
+			}
+			.cursor {
+				display: block;
+				font-weight: bold;
+				color: #333;
+			}
+			.message {
+				display: block;
+				color: #666;
+			}
+			.highlight {
+				background-color: #d4edda; /* Light green background */
+				border-color: #c3e6cb; /* Green border */
+			}
+
+			#flag {
+				font-weight: bold;
+				font-size: 24px;
+				text-align: center;
+				margin: 20px 0;
+				color: #f00;
+			}
+		</style>
 	</head>
 	<body>
 		<h1>Cursor Loop Checker</h1>
+		<div id="flag"></div>
 		<div id="output"></div>
 
 		<script src="loopChecker.js"></script>
