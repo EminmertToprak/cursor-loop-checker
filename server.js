@@ -18,6 +18,7 @@ app.post('/api/proxy', (req, res) => {
 		res.status(200).json({
 			message: hit.message,
 			nextCursor: hit.nextCursor,
+			flag: hit.flag,
 		});
 		return;
 	}
@@ -41,7 +42,11 @@ app.post('/api/proxy', (req, res) => {
 
 		const data = JSON.parse(body);
 
-		cache.set(cursor, { message: data.message, nextCursor: data.nextCursor });
+		cache.set(cursor, {
+			message: data.message,
+			nextCursor: data.nextCursor,
+			flag: data.flag,
+		});
 
 		if (!data.nextCursor) {
 			console.log(data);
